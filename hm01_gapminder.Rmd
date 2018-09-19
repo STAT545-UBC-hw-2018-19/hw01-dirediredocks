@@ -39,3 +39,24 @@ min(gapminder$gdpPercap)
 max(gapminder$gdpPercap)
 ```
 
+## 5. By loading the `tidyverse` package we can do more interesting analysis.
+
+```{r}
+library(tidyverse)
+```
+
+## 6. A comparison of lifeExp and gdpPercap by country, sorted by lifeExp first and then by gdpPercap.
+
+```{r}
+gapminder %>%
+  select(lifeExp, gdpPercap, country) %>%
+  arrange(lifeExp, gdpPercap)
+```
+
+## 7. A plot of lifeExp versus gdpPercap for all countries.
+
+```{r}
+ggplot(gapminder, aes(x = gdpPercap, y = lifeExp)) + geom_point()
+plot <- ggplot(gapminder, aes(x = gdpPercap, y = lifeExp)) 
+```
+

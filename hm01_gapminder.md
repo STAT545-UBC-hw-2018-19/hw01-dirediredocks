@@ -73,3 +73,58 @@ max(gapminder$gdpPercap)
 ```
 
     ## [1] 113523.1
+
+5. By loading the `tidyverse` package we can do more interesting analysis.
+--------------------------------------------------------------------------
+
+``` r
+library(tidyverse)
+```
+
+    ## ── Attaching packages ────────────────────────────────────────────── tidyverse 1.2.1 ──
+
+    ## ✔ ggplot2 3.0.0     ✔ purrr   0.2.5
+    ## ✔ tibble  1.4.2     ✔ dplyr   0.7.6
+    ## ✔ tidyr   0.8.1     ✔ stringr 1.3.1
+    ## ✔ readr   1.1.1     ✔ forcats 0.3.0
+
+    ## ── Conflicts ───────────────────────────────────────────────── tidyverse_conflicts() ──
+    ## ✖ dplyr::filter() masks stats::filter()
+    ## ✖ dplyr::lag()    masks stats::lag()
+
+6. A comparison of lifeExp and gdpPercap by country, sorted by lifeExp first and then by gdpPercap.
+---------------------------------------------------------------------------------------------------
+
+``` r
+gapminder %>%
+  select(lifeExp, gdpPercap, country) %>%
+  arrange(lifeExp, gdpPercap)
+```
+
+    ## # A tibble: 1,704 x 3
+    ##    lifeExp gdpPercap country     
+    ##      <dbl>     <dbl> <fct>       
+    ##  1    23.6      737. Rwanda      
+    ##  2    28.8      779. Afghanistan 
+    ##  3    30        485. Gambia      
+    ##  4    30.0     3521. Angola      
+    ##  5    30.3      880. Sierra Leone
+    ##  6    30.3      821. Afghanistan 
+    ##  7    31.2      525. Cambodia    
+    ##  8    31.3      469. Mozambique  
+    ##  9    31.6     1004. Sierra Leone
+    ## 10    32.0      543. Burkina Faso
+    ## # ... with 1,694 more rows
+
+7. A plot of lifeExp versus gdpPercap for all countries.
+--------------------------------------------------------
+
+``` r
+ggplot(gapminder, aes(x = gdpPercap, y = lifeExp)) + geom_point()
+```
+
+![](hm01_gapminder_files/figure-markdown_github/unnamed-chunk-7-1.png)
+
+``` r
+plot <- ggplot(gapminder, aes(x = gdpPercap, y = lifeExp)) 
+```
