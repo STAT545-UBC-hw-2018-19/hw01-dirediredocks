@@ -123,8 +123,6 @@ gapminder %>%
 ggplot(gapminder, aes(x = gdpPercap, y = lifeExp)) + geom_point()
 ```
 
-![](hm01_gapminder_files/figure-markdown_github/unnamed-chunk-7-1.png)
-
 ``` r
 plot <- ggplot(gapminder, aes(x = gdpPercap, y = lifeExp)) 
 ```
